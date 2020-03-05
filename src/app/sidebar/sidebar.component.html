@@ -1,0 +1,19 @@
+
+<div class="sidebar-wrapper">
+    <div class="logo">
+        <a href="#" class="simple-text">
+            <div class="logo-img">
+                <img src="./assets/img/angular2-logo-white.png"/>
+            </div>
+            <span style="text-transform: none;">ASoftwares Corp</span>
+        </a>
+    </div>
+    <ul class="nav responsive-nav">
+        <li routerLinkActive="active" *ngFor="let menuItem of menuItems" class="{{menuItem.class}}" style="width: 100%;">
+            <a  [routerLink]="[menuItem.path]">
+                <i class="{{menuItem.icon}}"></i>
+                <p>{{menuItem.title}}</p>
+            </a>
+        </li>
+    </ul>
+</div>

@@ -1,0 +1,156 @@
+<div class="main-content" >
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="header">
+                        <h4 class="title">Edit Profile</h4>
+                    </div>
+                    <div class="content">
+                        <form [formGroup]="formulario">
+                            <div class="row">
+                                <div class="col-md-5">
+                                    <div class="form-group">
+                                        <label>Company</label>
+                                        <input formControlName="company" type="text" class="form-control" placeholder="Company" value="Creative Code Inc.">
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label for="exampleInputEmail1">Email address</label>
+                                        <input formControlName="email" type="email" class="form-control" placeholder="Email">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                               
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label>Username</label>
+                                        <input formControlName="userName" type="text" class="form-control" placeholder="Username" value="michael23">
+                                    </div>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>Password</label>
+                                        <input formControlName="password" type="password" class="form-control" placeholder="Password">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>First Name</label>
+                                        <input formControlName="firstName" type="text" class="form-control" placeholder="Company" value="Mike">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Last Name</label>
+                                        <input formControlName="lastName" type="text" class="form-control" placeholder="Last Name" value="Andrew">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>Address</label>
+                                        <input formControlName="address" type="text" class="form-control" placeholder="Home Address" value="Bld Mihail Kogalniceanu, nr. 8 Bl 1, Sc 1, Ap 09">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>City</label>
+                                        <input formControlName="city" type="text" class="form-control" placeholder="City" value="Mike">
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>Country</label>
+                                        <input formControlName="country" type="text" class="form-control" placeholder="Country" value="Andrew">
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>Postal Code</label>
+                                        <input formControlName="postalCode" type="number" class="form-control" placeholder="ZIP Code">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>About Me</label>
+                                        <textarea formControlName="consideration" rows="5" class="form-control" placeholder="Here can be your description" value="Mike">Lamborghini Mercy, Your chick she so thirsty, I'm in that two seat Lambo.</textarea>
+                                    </div>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-danger btn-fill pull-left col-md-3" (click)="cancelUpdate()">Cancel</button>
+                            <button type="submit" class="btn btn-success btn-fill pull-right col-md-3" (click)="updateUser()" [disabled]="formulario.invalid">Update Profile</button>
+                            <div class="clearfix"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4" *ngIf="(usuario$ | async) as user">
+                
+                <div class="card">
+                    <div class="header">
+                        <h4 class="title">Adicionar Permissão</h4>
+                    </div>
+                    <div class="content">
+                        <form [formGroup]="formulario">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group" *ngIf="(softwares$ | async) as softwares">
+                                        
+                                        <label>Escolha o Software</label>
+                                        <select class="form-control selectpicker" data-live-search="true" formControlName="software">
+                                            <option [value]="software.id" *ngFor="let software of softwares">{{software.name}}</option>
+                                          </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <button type="submit" class="btn btn-danger btn-fill pull-left col-md-4">Cancel</button>
+                            <button type="submit" class="btn btn-success btn-fill pull-right col-md-4" (click)="addSoftware(user.id)" [disabled]="formulario.invalid">Update Profile</button>
+                            <div class="clearfix"></div>
+                        </form>
+
+                        <div class="content table-responsive table-full-width">
+                            <table class="table table-hover table-striped">
+                              <thead>
+                                  <tr>
+                                      <th>Nome</th>
+                                  </tr>
+                              </thead>
+                              <tbody>
+                                  <tr *ngFor="let soft of user.softwaresList">
+                                      <td>{{soft.name}}</td>
+                                      <td class="pull-right">
+                                          <span>
+                                              <button [disabled]="formulario.invalid" (click)="removeSoftware(user.id, soft.id)" type="submit" class="btn btn-danger btn-fill" style="padding: 0px 12px;">
+                                                  <span style="cursor: pointer;" class="fa fa-times" aria-hidden="true"></span>
+                                              </button>
+                                          </span>
+                                      </td>
+                                  </tr>
+                              </tbody>
+                          </table>
+  
+                      </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
