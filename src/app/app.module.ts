@@ -12,8 +12,6 @@ import { SidebarModule } from './sidebar/sidebar.module';
 import { AppComponent } from './app.component';
 
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
-import { SoftwareComponent } from './aplicativo/software/software.component';
-import { AlertComponent } from './shared/component/alert/alert.component';
 import { AlertModule } from './shared/component/alert/alert.module';
 
 @NgModule({

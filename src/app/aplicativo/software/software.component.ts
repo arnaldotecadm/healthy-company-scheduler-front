@@ -1,11 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { FormGroup, FormBuilder } from '@angular/forms';
-import { DISABLED } from '@angular/forms/src/model';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { AplicativoService } from '../aplicativo.service';
-import { switchMap } from 'rxjs/operators';
-import { Observable } from 'rxjs';
-import { Software } from './software.interface';
 
 @Component({
   selector: 'app-software',
@@ -38,6 +34,15 @@ export class SoftwareComponent implements OnInit {
   }
 
   updateSoftware() {
+    Object.keys(this.formulario.controls).forEach(field => { 
+      const control = this.formulario.get(field);            
+      control.markAsTouched({ onlySelf: true });
+    });
+
+    if (this.formulario.invalid) {
+      return;
+    }
+
     this.aplicativoService.salvarRegistro(this.formulario.getRawValue())
       .subscribe( () =>{
         this.router.navigate(['/app-list']);
@@ -47,15 +52,19 @@ export class SoftwareComponent implements OnInit {
   private construirFormulario() {
     this.formulario = this.formBuilder.group({
       id : [''],
-      name: [''],
-      nickname: [''],
+      name: ['', Validators.required],
+      nickname: ['', Validators.required],
       publicKey: [{ value: '', disabled: true }],
       privateKey: [{ value: '', disabled: true }],
       urlUserManual: [''],
       emailContact: [''],
       mobileVersion: [''],
       active: [''],
-      consideration: ['']
+      consideration: ['', Validators.required]
     });
   }
+
+  isFieldValid(field: string) {
+    return  !this.formulario.get(field).valid && this.formulario.get(field).touched;
+   }
 }

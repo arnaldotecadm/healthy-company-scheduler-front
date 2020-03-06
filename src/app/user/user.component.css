@@ -1,0 +1,11 @@
+.required:after { 
+  color: #d00;
+  content: "*";
+  position: absolute;
+  margin-left: 5px;
+  top:7px;
+}
+
+input.ng-invalid.ng-touched {
+  border: 1px solid red;
+}

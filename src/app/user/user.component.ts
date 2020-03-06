@@ -49,8 +49,15 @@ export class UserComponent implements OnInit {
   }
 
   updateUser() {
-    //this.formulario.getRawValue();
+    
+    Object.keys(this.formulario.controls).forEach(field => { 
+      const control = this.formulario.get(field);            
+      control.markAsTouched({ onlySelf: true });
+    });
 
+    if (this.formulario.invalid) {
+      return;
+    }
     this.userService.salvarRegistro(this.formulario.getRawValue()).subscribe((resposta: any) => {
       console.log('Resposta do servidor: ' + resposta.message);
       this.router.navigate(['/table']);
@@ -84,7 +91,7 @@ export class UserComponent implements OnInit {
   private construirFormulario() {
     this.formulario = this.formBuilder.group({
       id: [],
-      company: [''],
+      company: ['', Validators.required],
       userName: ['', Validators.required],
       password: ['', Validators.required],
       email: ['', Validators.required],
@@ -98,4 +105,9 @@ export class UserComponent implements OnInit {
       software: ['']
     });
   }
+
+  isFieldValid(field: string) {
+    return  !this.formulario.get(field).valid && this.formulario.get(field).touched;
+  }
+
 }

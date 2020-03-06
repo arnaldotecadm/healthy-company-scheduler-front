@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { UserComponent } from './user.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AlertModule } from 'app/shared/component/alert/alert.module';
+import { VMessageModule } from 'app/shared/vmessage/vmessage.module';
 
 @NgModule({
   declarations: [UserComponent],
@@ -10,7 +11,8 @@ import { AlertModule } from 'app/shared/component/alert/alert.module';
   imports: [
     CommonModule,
     ReactiveFormsModule,
-    AlertModule
+    AlertModule,
+    VMessageModule
   ]
 })
 export class UserModule { }

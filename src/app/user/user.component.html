@@ -11,14 +11,22 @@
                             <div class="row">
                                 <div class="col-md-5">
                                     <div class="form-group">
-                                        <label>Company</label>
+                                        <label class="required">Company</label>
                                         <input formControlName="company" type="text" class="form-control" placeholder="Company" value="Creative Code Inc.">
+                                        <app-vmessage 
+                                            [displayError]="isFieldValid('company')" 
+                                            errorMsg="Campo Obrigatório">
+                                        </app-vmessage> 
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <label for="exampleInputEmail1">Email address</label>
+                                        <label for="exampleInputEmail1" class="required">Email address</label>
                                         <input formControlName="email" type="email" class="form-control" placeholder="Email">
+                                        <app-vmessage 
+                                            [displayError]="isFieldValid('email')" 
+                                            errorMsg="Campo Obrigatório">
+                                        </app-vmessage> 
                                     </div>
                                 </div>
                             </div>
@@ -27,15 +35,24 @@
                                
                                 <div class="col-md-3">
                                     <div class="form-group">
-                                        <label>Username</label>
-                                        <input formControlName="userName" type="text" class="form-control" placeholder="Username" value="michael23">
+                                        <label class="required">Username</label>
+                                        <input formControlName="userName" type="text" class="form-control" placeholder="Username" value="">
+                                        
+                                        <app-vmessage 
+                                            [displayError]="isFieldValid('userName')" 
+                                            errorMsg="Campo Obrigatório">
+                                        </app-vmessage>   
                                     </div>
                                 </div>
 
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <label>Password</label>
+                                        <label class="required">Password</label>
                                         <input formControlName="password" type="password" class="form-control" placeholder="Password">
+                                        <app-vmessage 
+                                            [displayError]="isFieldValid('password')" 
+                                            errorMsg="Campo Obrigatório">
+                                        </app-vmessage> 
                                     </div>
                                 </div>
                             </div>
@@ -43,7 +60,7 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label>First Name</label>
+                                        <label class="required">First Name</label>
                                         <input formControlName="firstName" type="text" class="form-control" placeholder="Company" value="Mike">
                                     </div>
                                 </div>
@@ -94,7 +111,7 @@
                                 </div>
                             </div>
                             <button type="submit" class="btn btn-danger btn-fill pull-left col-md-3" (click)="cancelUpdate()">Cancel</button>
-                            <button type="submit" class="btn btn-success btn-fill pull-right col-md-3" (click)="updateUser()" [disabled]="formulario.invalid">Update Profile</button>
+                            <button type="submit" class="btn btn-success btn-fill pull-right col-md-3" (click)="updateUser()">Update Profile</button>
                             <div class="clearfix"></div>
                         </form>
                     </div>

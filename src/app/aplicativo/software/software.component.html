@@ -11,14 +11,22 @@
                           <div class="row">
                               <div class="col-md-5">
                                   <div class="form-group">
-                                      <label>Nome</label>
+                                      <label class="required">Nome</label>
                                       <input formControlName="name" type="text" class="form-control" placeholder="Nome do Software">
+                                      <app-vmessage 
+                                            [displayError]="isFieldValid('name')" 
+                                            errorMsg="Campo Obrigatório">
+                                        </app-vmessage> 
                                   </div>
                               </div>
                               <div class="col-md-3">
                                   <div class="form-group">
-                                      <label>Apelido</label>
+                                      <label class="required">Apelido</label>
                                       <input formControlName="nickname" type="text" class="form-control" placeholder="Apelido">
+                                      <app-vmessage 
+                                            [displayError]="isFieldValid('nickname')" 
+                                            errorMsg="Campo Obrigatório">
+                                        </app-vmessage> 
                                   </div>
                               </div>
                           </div>
@@ -80,10 +88,14 @@
                           <div class="row">
                               <div class="col-md-12">
                                   <div class="form-group">
-                                      <label>Descrição</label>
+                                      <label class="required">Descrição</label>
                                       <textarea formControlName="consideration" rows="5" class="form-control" placeholder="Breve descrição sobre o sistema"></textarea>
+                                      <app-vmessage 
+                                            [displayError]="isFieldValid('consideration')" 
+                                            errorMsg="Campo Obrigatório">
+                                        </app-vmessage> 
                                   </div>
-                              </div>
+                              </div> 
                           </div>
                           <button (click)="updateSoftware()" type="submit" class="btn btn-info btn-fill pull-right">Enviar Informações</button>
                           <div class="clearfix"></div>
