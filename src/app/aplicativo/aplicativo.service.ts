@@ -15,7 +15,6 @@ export class AplicativoService {
   constructor(private http: HttpClient) { }
 
   salvarRegistro(registro : Software){
-    debugger
     return this.http.post<Software>(API + '/user-management/software/add', registro);
   }
 

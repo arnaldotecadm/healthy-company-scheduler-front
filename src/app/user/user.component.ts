@@ -36,7 +36,7 @@ export class UserComponent implements OnInit {
 
     if (!id) return;
     this.userService.getById(id ? +id : 0)
-      .subscribe(usuario => {debugger
+      .subscribe(usuario => {
         this.formulario.patchValue(usuario);
         this.usuario$.next(usuario);
       });
@@ -66,7 +66,7 @@ export class UserComponent implements OnInit {
 
   addSoftware(usuarioId: number) {
     this.userService.addSoftware("" + usuarioId, this.formulario.get('software').value as string)
-      .pipe(switchMap((resp: any) => {debugger
+      .pipe(switchMap((resp: any) => {
         console.log('Resposta do servidor: ' + resp.message);
         this.formulario.get('software').setValue(null);
         return this.userService.getById(usuarioId);
@@ -92,7 +92,7 @@ export class UserComponent implements OnInit {
     this.formulario = this.formBuilder.group({
       id: [],
       company: ['', Validators.required],
-      userName: ['', Validators.required],
+      username: ['', Validators.required],
       password: ['', Validators.required],
       email: ['', Validators.required],
       firstName: ['', Validators.required],

@@ -3,7 +3,7 @@ import { Software } from "app/aplicativo/software/software.interface";
 export interface Usuario{
     id              : number;
     company         : string;
-	userName        : string;
+	username        : string;
 	password        : string;
     email           : string;
 	firstName       : string;

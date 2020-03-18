@@ -1,0 +1,10 @@
+<header class="fixed-top" *ngIf="userService.isLogged()">
+    <nav class="navbar navbar-light bg-white">
+        <a class="navbar-brand">ALURAPIC</a>
+        <div>
+            <i class="fa fa-user-circle"></i>
+            <a class="ml-2">{{ user?.sub }}</a>
+            <a (click)="logout()">(Logout)</a>
+        </div>
+    </nav>
+</header>

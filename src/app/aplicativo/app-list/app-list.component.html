@@ -23,6 +23,7 @@
                                   <th>Apelido</th>
                                   <th>Mobile</th>
                                   <th>Ativo</th>
+                                  <th>Manutenção</th>
                                   <th></th> 
                               </tr>
                               </thead>
@@ -36,6 +37,9 @@
                                   </td>
                                   <td>
                                     <input type="checkbox" [disabled]="true" [checked]="software.active">
+                                  </td>
+                                  <td>
+                                    <input type="checkbox" [disabled]="true" [checked]="software.inMaintenance">
                                   </td>
                                   <td class="pull-right">
                                       <span>

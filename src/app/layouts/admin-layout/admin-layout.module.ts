@@ -7,11 +7,10 @@ import { LbdModule } from '../../lbd/lbd.module';
 
 import { AdminLayoutRoutes } from './admin-layout.routing';
 
-import { HomeComponent } from '../../home/home.component';
-import { UserComponent } from '../../user/user.component';
 import { TablesComponent } from '../../tables/tables.component';
 import { AplicativoModule } from 'app/aplicativo/aplicativo.module';
 import { UserModule } from 'app/user/user.module';
+import { HomeModule } from 'app/home/home.module';
 
 
 @NgModule({
@@ -21,11 +20,11 @@ import { UserModule } from 'app/user/user.module';
     FormsModule,
     LbdModule,
     AplicativoModule,
-    UserModule
+    UserModule,
+    HomeModule
   ],
   declarations: [
-    HomeComponent,
-    TablesComponent,
+    TablesComponent
   ]
 })
 

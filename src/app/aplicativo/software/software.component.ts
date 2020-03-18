@@ -60,6 +60,7 @@ export class SoftwareComponent implements OnInit {
       emailContact: [''],
       mobileVersion: [''],
       active: [''],
+      inMaintenance: [],
       consideration: ['', Validators.required]
     });
   }

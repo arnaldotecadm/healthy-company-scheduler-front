@@ -6,6 +6,10 @@
     top:7px;
   }
   
-.ng-invalid.ng-touched {
+  input.ng-invalid.ng-touched {
     border: 1px solid red;
-}
+  }
+
+  textarea.ng-invalid.ng-touched {
+    border: 1px solid red;
+  }

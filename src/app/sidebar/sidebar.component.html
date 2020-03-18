@@ -15,5 +15,12 @@
                 <p>{{menuItem.title}}</p>
             </a>
         </li>
+
+        <li routerLinkActive="active" class="btn_sair_navbar">
+            <a>
+                <i class="pe-7s-user"></i>
+                <p (click)="logout()">Sair do Sistema</p>
+            </a>
+        </li>
     </ul>
 </div>

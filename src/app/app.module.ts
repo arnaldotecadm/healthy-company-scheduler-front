@@ -13,6 +13,8 @@ import { AppComponent } from './app.component';
 
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { AlertModule } from './shared/component/alert/alert.module';
+import { CoreModule } from './core/core.module';
+import { HomeModule } from './home/home.module';
 
 @NgModule({
   imports: [
@@ -24,7 +26,9 @@ import { AlertModule } from './shared/component/alert/alert.module';
     FooterModule,
     SidebarModule,
     AppRoutingModule,
-    AlertModule
+    AlertModule,
+    CoreModule,
+    HomeModule
   ],
   declarations: [
     AppComponent,

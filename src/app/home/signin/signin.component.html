@@ -1,0 +1,32 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-md-12">
+      <div class="account-wall">
+        <img class="profile-img"
+          src="https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=120"
+          alt="">
+        <form [formGroup]="loginForm" class="form-signin" (submit)="login()">
+          <input formControlName="username" type="text" class="form-control" placeholder="login" required autofocus>
+          <app-vmessage
+            *ngIf="loginForm.get('username').touched && loginForm.get('username').errors?.required"
+            text="User name is required!">
+          </app-vmessage>
+    
+          <input formControlName="password" type="password" class="form-control" placeholder="Password" required>
+
+          <app-vmessage
+            *ngIf="loginForm.get('password').touched && loginForm.get('password').errors?.required"
+            text="Password is required!">
+          </app-vmessage>
+
+          <button class="btn btn-lg btn-primary btn-block" type="submit">
+            Sign in</button>
+          <label class="checkbox pull-left">
+            <input type="checkbox" value="remember-me">
+            Remember me
+          </label>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

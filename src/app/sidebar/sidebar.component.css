@@ -1,0 +1,12 @@
+.btn_sair_navbar{
+    width: 100%;
+    position: absolute;
+    bottom: 5%;
+    border: 6px solid blue;
+    border-radius: 25px;
+    background-color: black;
+}
+
+li > a > p{
+    cursor: pointer;
+}

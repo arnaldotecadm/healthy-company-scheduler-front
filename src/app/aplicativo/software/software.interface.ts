@@ -9,6 +9,7 @@ export interface Software{
     emailContact    : string;
     mobileVersion   : boolean;
     active          : boolean;
+    inMaintenance   : boolean;
     consideration   : string;
     usuarioList     : Usuario[]
 }

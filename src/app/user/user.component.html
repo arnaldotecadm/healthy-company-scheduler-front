@@ -36,10 +36,10 @@
                                 <div class="col-md-3">
                                     <div class="form-group">
                                         <label class="required">Username</label>
-                                        <input formControlName="userName" type="text" class="form-control" placeholder="Username" value="">
+                                        <input formControlName="username" type="text" class="form-control" placeholder="Username" value="">
                                         
                                         <app-vmessage 
-                                            [displayError]="isFieldValid('userName')" 
+                                            [displayError]="isFieldValid('username')" 
                                             errorMsg="Campo Obrigatório">
                                         </app-vmessage>   
                                     </div>
@@ -62,6 +62,10 @@
                                     <div class="form-group">
                                         <label class="required">First Name</label>
                                         <input formControlName="firstName" type="text" class="form-control" placeholder="Company" value="Mike">
+                                        <app-vmessage 
+                                            [displayError]="isFieldValid('firstName')" 
+                                            errorMsg="Campo Obrigatório">
+                                        </app-vmessage> 
                                     </div>
                                 </div>
                                 <div class="col-md-6">
