@@ -32,10 +32,13 @@ export class TablesComponent implements OnInit {
   }
 
   remove(usuarioId : number){
+
+    if(confirm("Você deseja realmente excluir o Usuário selecionado?")) {
     this.users$ = this.userService.removeById(usuarioId)
         .pipe(switchMap( () => {
             return this.userService.getAll();
         }));
+      }
   }
 
   ngOnInit() {

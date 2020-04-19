@@ -16,14 +16,12 @@
             "main": "src/main.ts",
             "tsConfig": "src/tsconfig.json",
             "polyfills": "src/polyfills.ts",
-            "assets": [
-              "src/assets",
-              "src/favicon.ico"
-            ],
+            "assets": ["src/assets", "src/favicon.ico"],
             "styles": [
               "node_modules/perfect-scrollbar/css/perfect-scrollbar.css",
               "node_modules/animate.css/animate.min.css",
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "node_modules/ngx-toastr/toastr.css",
               "src/assets/sass/light-bootstrap-dashboard.scss",
               "src/assets/css/demo.css",
               "src/styles.css"
@@ -90,19 +88,14 @@
               "src/assets/sass/light-bootstrap-dashboard.scss",
               "src/assets/css/demo.css"
             ],
-            "assets": [
-              "src/assets",
-              "src/favicon.ico"
-            ],
+            "assets": ["src/assets", "src/favicon.ico"],
             "tsConfig": "src/tsconfig.json"
           }
         },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": [
-              "src/tsconfig.json"
-            ],
+            "tsConfig": ["src/tsconfig.json"],
             "exclude": []
           }
         }
@@ -123,9 +116,7 @@
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": [
-              "e2e/tsconfig.json"
-            ],
+            "tsConfig": ["e2e/tsconfig.json"],
             "exclude": []
           }
         }

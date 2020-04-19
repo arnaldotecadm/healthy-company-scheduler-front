@@ -24,4 +24,8 @@ export class HeaderComponent {
         this.userService.logout();
         this.router.navigate(['sigin-in']);
     }
+
+    isUserLogged() : boolean {
+        return this.userService.isLogged();
+    }
 }
