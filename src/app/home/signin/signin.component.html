@@ -18,11 +18,11 @@
               autofocus
             />
             <app-vmessage
-              *ngIf="
+              [displayError]="
                 loginForm.get('username').touched &&
                 loginForm.get('username').errors?.required
               "
-              text="User name is requiresdd!"
+              errorMsg="User name is requiresdd!"
             >
             </app-vmessage>
           </div>
@@ -36,11 +36,11 @@
               required
             />
             <app-vmessage
-              *ngIf="
+              [displayError]="
                 loginForm.get('password').touched &&
                 loginForm.get('password').errors?.required
               "
-              text="Password is required!"
+              errorMsg="Password is required!"
             >
             </app-vmessage>
           </div>

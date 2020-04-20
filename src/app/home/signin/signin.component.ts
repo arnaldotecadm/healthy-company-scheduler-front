@@ -55,7 +55,7 @@ export class SigninComponent implements OnInit {
             break;
           case 401:
             this.msgService.showError(
-              "Usuário e Senha incorretas.Por favor verifique as informações e tente novamente.",
+              "Usuário ou Senha incorretas.Por favor verifique as informações e tente novamente.",
               "Acesso não permitido!"
             );
             this.loginForm.get("username").setErrors({ userName: true });
