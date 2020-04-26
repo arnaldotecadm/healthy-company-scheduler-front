@@ -12,7 +12,6 @@ import { SidebarModule } from "./sidebar/sidebar.module";
 import { AppComponent } from "./app.component";
 
 import { AdminLayoutComponent } from "./layouts/admin-layout/admin-layout.component";
-import { AlertModule } from "./shared/component/alert/alert.module";
 import { CoreModule } from "./core/core.module";
 import { HomeModule } from "./home/home.module";
 import { ToastrModule } from "ngx-toastr";
@@ -27,7 +26,6 @@ import { ToastrModule } from "ngx-toastr";
     FooterModule,
     SidebarModule,
     AppRoutingModule,
-    AlertModule,
     CoreModule,
     HomeModule,
     ToastrModule.forRoot(),

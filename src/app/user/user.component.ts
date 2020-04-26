@@ -4,11 +4,10 @@ import { Usuario } from "./user.interface";
 import { Component, OnInit } from "@angular/core";
 import { Router, ActivatedRoute } from "@angular/router";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
-import { tap, switchMap } from "rxjs/operators";
+import { switchMap } from "rxjs/operators";
 import { AplicativoService } from "app/aplicativo/aplicativo.service";
 import { Observable, of, Subject } from "rxjs";
 import { Software } from "app/aplicativo/software/software.interface";
-import { AlertService } from "app/shared/component/alert/alert.service";
 import { MenssageService } from "app/shared/notification/notification.service";
 
 @Component({
