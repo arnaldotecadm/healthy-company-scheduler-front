@@ -1,31 +1,23 @@
-import { NgModule } from '@angular/core';
-import { RouterModule } from '@angular/router';
-import { CommonModule } from '@angular/common';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NgModule } from "@angular/core";
+import { RouterModule } from "@angular/router";
+import { CommonModule } from "@angular/common";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 
-import { LbdModule } from '../../lbd/lbd.module';
+import { AdminLayoutRoutes } from "./admin-layout.routing";
 
-import { AdminLayoutRoutes } from './admin-layout.routing';
-
-import { TablesComponent } from '../../tables/tables.component';
-import { AplicativoModule } from 'app/aplicativo/aplicativo.module';
-import { UserModule } from 'app/user/user.module';
-import { HomeModule } from 'app/home/home.module';
-
+import { AplicativoModule } from "app/aplicativo/aplicativo.module";
+import { UserModule } from "app/user/user.module";
+import { HomeModule } from "app/home/home.module";
 
 @NgModule({
   imports: [
     CommonModule,
     RouterModule.forChild(AdminLayoutRoutes),
     FormsModule,
-    LbdModule,
     AplicativoModule,
     UserModule,
-    HomeModule
+    HomeModule,
   ],
-  declarations: [
-    TablesComponent
-  ]
+  declarations: [],
 })
-
 export class AdminLayoutModule {}

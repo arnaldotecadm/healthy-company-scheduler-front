@@ -14,7 +14,7 @@ const routes: Routes = [
   },
   {
     path: "",
-    redirectTo: "dashboard",
+    redirectTo: "home",
     pathMatch: "full",
     canActivate: [AuthGuard],
   },
@@ -32,7 +32,7 @@ const routes: Routes = [
   },
   {
     path: "**",
-    redirectTo: "dashboard",
+    redirectTo: "home",
     canActivate: [AuthGuard],
   },
 ];
