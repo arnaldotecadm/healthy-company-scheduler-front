@@ -1,18 +1,18 @@
-import { Software } from "app/aplicativo/software/software.interface";
+import { Software } from 'app/aplicativo/software.interface';
 
-export interface Usuario{
-    id              : number;
-    company         : string;
-	username        : string;
-	password        : string;
-    email           : string;
-	firstName       : string;
-	lastName        : string;
-	address         : string;
-	city            : string;
-	country         : string;
-	postalCode      : string;
-	consideration   : string;
+export interface Usuario {
+  id: number;
+  company: string;
+  username: string;
+  password: string;
+  email: string;
+  firstName: string;
+  lastName: string;
+  address: string;
+  city: string;
+  country: string;
+  postalCode: string;
+  consideration: string;
 
-	softwaresList	: Software[];
+  softwaresList: Software[];
 }

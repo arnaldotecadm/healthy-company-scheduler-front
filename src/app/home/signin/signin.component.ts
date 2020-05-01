@@ -1,13 +1,13 @@
-import { Component, OnInit } from "@angular/core";
-import { FormGroup, FormBuilder, Validators } from "@angular/forms";
-import { Router } from "@angular/router";
-import { AuthService } from "app/core/auth/auth.service";
-import { UserService } from "app/core/user/user.service";
-import { MenssageService } from "app/shared/notification/notification.service";
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { AuthService } from 'app/core/auth/auth.service';
+import { UserService } from 'app/core/user/user.service';
+import { MenssageService } from 'app/shared/notification/notification.service';
 
 @Component({
-  templateUrl: "./signin.component.html",
-  styleUrls: ["./signin.component.css"],
+  templateUrl: './signin.component.html',
+  styleUrls: ['./signin.component.css'],
 })
 export class SigninComponent implements OnInit {
   loginForm: FormGroup;
@@ -22,49 +22,51 @@ export class SigninComponent implements OnInit {
 
   ngOnInit() {
     if (this.userService.isLogged()) {
-      this.router.navigate(["excecoes"]);
+      this.router.navigate(['excecoes']);
     }
 
     this.loginForm = this.formBuider.group({
-      username: ["", Validators.required],
-      password: ["", Validators.required],
+      username: ['', Validators.required],
+      password: ['', Validators.required],
     });
 
     this.loginForm.valueChanges.subscribe(() => {
-      if (this.loginForm.get("username").value)
-        this.loginForm.get("username").setErrors(null);
+      if (this.loginForm.get('username').value) {
+        this.loginForm.get('username').setErrors(null);
+      }
 
-      if (this.loginForm.get("password").value)
-        this.loginForm.get("password").setErrors(null);
+      if (this.loginForm.get('password').value) {
+        this.loginForm.get('password').setErrors(null);
+      }
     });
   }
 
   login() {
-    const userName = this.loginForm.get("username").value;
-    const password = this.loginForm.get("password").value;
+    const userName = this.loginForm.get('username').value;
+    const password = this.loginForm.get('password').value;
 
     this.authService.authenticate(userName, password).subscribe(
-      () => this.router.navigate(["/excecoes"]),
+      () => this.router.navigate(['/excecoes']),
       (err) => {
         switch (err.status) {
           case 0:
             this.msgService.showError(
-              "Ocorreu um erro ao tentar acessar o servidor de Autentições. Tente novamente mais tarde.",
-              "Falha na conexão"
+              'Ocorreu um erro ao tentar acessar o servidor de Autentições. Tente novamente mais tarde.',
+              'Falha na conexão'
             );
             break;
           case 401:
             this.msgService.showError(
-              "Usuário ou Senha incorretas.Por favor verifique as informações e tente novamente.",
-              "Acesso não permitido!"
+              'Usuário ou Senha incorretas.Por favor verifique as informações e tente novamente.',
+              'Acesso não permitido!'
             );
-            this.loginForm.get("username").setErrors({ userName: true });
-            this.loginForm.get("password").setErrors({ password: true });
+            this.loginForm.get('username').setErrors({ userName: true });
+            this.loginForm.get('password').setErrors({ password: true });
             break;
           default:
             this.msgService.showError(
-              "Ocorreu um erro desconhecido, mas não se preocupe;  Já estamos trabalhando para resolver o problema.",
-              "Atenção"
+              'Ocorreu um erro desconhecido, mas não se preocupe;  Já estamos trabalhando para resolver o problema.',
+              'Atenção'
             );
             break;
         }

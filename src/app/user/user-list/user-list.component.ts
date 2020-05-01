@@ -1,9 +1,9 @@
-import { Component, OnInit } from "@angular/core";
-import { Router, ActivatedRoute } from "@angular/router";
-import { UserService } from "app/user/user.service";
-import { Usuario } from "app/user/user.interface";
-import { switchMap } from "rxjs/operators";
-import { Observable } from "rxjs";
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Usuario } from 'app/user/user.interface';
+import { UserService } from 'app/user/user.service';
+import { Observable } from 'rxjs';
+import { switchMap } from 'rxjs/operators';
 
 declare interface TableData {
   headerRow: string[];
@@ -11,9 +11,8 @@ declare interface TableData {
 }
 
 @Component({
-  selector: "user-list",
-  templateUrl: "./user-list.component.html",
-  styleUrls: ["./user-list.component.css"],
+  templateUrl: './user-list.component.html',
+  styleUrls: ['./user-list.component.css'],
 })
 export class UserListComponent implements OnInit {
   public users$: Observable<Usuario[]>;
@@ -21,15 +20,15 @@ export class UserListComponent implements OnInit {
   constructor(private router: Router, private userService: UserService) {}
 
   addNewUser() {
-    this.router.navigate(["/user"]);
+    this.router.navigate(['/user']);
   }
 
   edit(usuarioId: number) {
-    this.router.navigate(["/user", { usuarioId: usuarioId }]);
+    this.router.navigate(['/user', { usuarioId: usuarioId }]);
   }
 
   remove(usuarioId: number) {
-    if (confirm("Você deseja realmente excluir o Usuário selecionado?")) {
+    if (confirm('Você deseja realmente excluir o Usuário selecionado?')) {
       this.users$ = this.userService.removeById(usuarioId).pipe(
         switchMap(() => {
           return this.userService.getAll();

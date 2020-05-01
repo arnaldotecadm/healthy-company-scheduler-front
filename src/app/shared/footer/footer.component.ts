@@ -1,12 +1,11 @@
 import { Component } from '@angular/core';
 
-declare var $:any;
+declare var $: any;
 
 @Component({
-    selector: 'footer-cmp',
-    templateUrl: 'footer.component.html'
+  selector: 'app-footer-cmp',
+  templateUrl: 'footer.component.html',
 })
-
-export class FooterComponent{
-    test : Date = new Date();
+export class FooterComponent {
+  test: Date = new Date();
 }

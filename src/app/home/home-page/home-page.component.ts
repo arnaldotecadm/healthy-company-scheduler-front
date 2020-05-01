@@ -1,10 +1,9 @@
-import { Component, OnInit } from "@angular/core";
-import * as Chartist from "chartist";
+import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: "app-home",
-  templateUrl: "./home-page.component.html",
-  styleUrls: ["./home-page.component.css"],
+  selector: 'app-home',
+  templateUrl: './home-page.component.html',
+  styleUrls: ['./home-page.component.css'],
 })
 export class HomePageComponent implements OnInit {
   constructor() {}

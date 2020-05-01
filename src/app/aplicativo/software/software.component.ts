@@ -6,27 +6,33 @@ import { AplicativoService } from '../aplicativo.service';
 @Component({
   selector: 'app-software',
   templateUrl: './software.component.html',
-  styleUrls: ['./software.component.scss']
+  styleUrls: ['./software.component.scss'],
 })
 export class SoftwareComponent implements OnInit {
-
   formulario: FormGroup;
 
   constructor(
     private router: Router,
     private formBuilder: FormBuilder,
     private aplicativoService: AplicativoService,
-    private route: ActivatedRoute) { }
+    private route: ActivatedRoute
+  ) {}
 
   ngOnInit() {
     this.construirFormulario();
-    
-    let id = this.route.snapshot.paramMap.get('softwareId');
 
-    this.aplicativoService.getById(id ? +id : 0)
-    .subscribe( usuario =>{
+    const id = this.route.snapshot.paramMap.get('softwareId');
+
+    this.aplicativoService.getById(id ? +id : 0).subscribe((usuario) => {
       this.formulario.patchValue(usuario);
     });
+  }
+
+  updateNotes() {
+    this.router.navigate([
+      '/updates',
+      { softwareId: this.route.snapshot.paramMap.get('softwareId') },
+    ]);
   }
 
   listSoftwares() {
@@ -34,8 +40,8 @@ export class SoftwareComponent implements OnInit {
   }
 
   updateSoftware() {
-    Object.keys(this.formulario.controls).forEach(field => { 
-      const control = this.formulario.get(field);            
+    Object.keys(this.formulario.controls).forEach((field) => {
+      const control = this.formulario.get(field);
       control.markAsTouched({ onlySelf: true });
     });
 
@@ -43,15 +49,16 @@ export class SoftwareComponent implements OnInit {
       return;
     }
 
-    this.aplicativoService.salvarRegistro(this.formulario.getRawValue())
-      .subscribe( () =>{
+    this.aplicativoService
+      .salvarRegistro(this.formulario.getRawValue())
+      .subscribe(() => {
         this.router.navigate(['/app-list']);
       });
   }
 
   private construirFormulario() {
     this.formulario = this.formBuilder.group({
-      id : [''],
+      id: [''],
       name: ['', Validators.required],
       nickname: ['', Validators.required],
       publicKey: [{ value: '', disabled: true }],
@@ -61,11 +68,13 @@ export class SoftwareComponent implements OnInit {
       mobileVersion: [''],
       active: [''],
       inMaintenance: [],
-      consideration: ['', Validators.required]
+      consideration: ['', Validators.required],
     });
   }
 
   isFieldValid(field: string) {
-    return  !this.formulario.get(field).valid && this.formulario.get(field).touched;
-   }
+    return (
+      !this.formulario.get(field).valid && this.formulario.get(field).touched
+    );
+  }
 }

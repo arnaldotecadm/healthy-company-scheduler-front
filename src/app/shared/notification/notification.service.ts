@@ -1,13 +1,13 @@
-import { Injectable } from "@angular/core";
-import { ToastrService } from "ngx-toastr";
+import { Injectable } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 
-@Injectable({ providedIn: "root" })
+@Injectable({ providedIn: 'root' })
 export class MenssageService {
-  constructor(private toastr: ToastrService) {}
+  private position = 'top';
+  private align = 'right';
+  private title = '';
 
-  private position = "top";
-  private align = "right";
-  private title = "";
+  constructor(private toastr: ToastrService) {}
 
   public showInfo(
     message: string,
@@ -15,7 +15,7 @@ export class MenssageService {
     position?: string,
     align?: string
   ) {
-    this.show(message, title, position, align, "alert-info", "toast-info");
+    this.show(message, title, position, align, 'alert-info', 'toast-info');
   }
 
   public showError(
@@ -24,7 +24,7 @@ export class MenssageService {
     position?: string,
     align?: string
   ) {
-    this.show(message, title, position, align, "alert-danger", "toast-error");
+    this.show(message, title, position, align, 'alert-danger', 'toast-error');
   }
 
   public showSucess(
@@ -38,8 +38,8 @@ export class MenssageService {
       title,
       position,
       align,
-      "alert-success",
-      "toast-success"
+      'alert-success',
+      'toast-success'
     );
   }
 
@@ -54,8 +54,8 @@ export class MenssageService {
       title,
       position,
       align,
-      "alert-warning",
-      "toast-warning"
+      'alert-warning',
+      'toast-warning'
     );
   }
 
@@ -77,8 +77,8 @@ export class MenssageService {
         timeOut: 4000,
         closeButton: true,
         enableHtml: true,
-        toastClass: "alert " + tipoAlerta + " alert-with-icon",
-        positionClass: "toast-" + this.position + "-" + this.align,
+        toastClass: 'alert ' + tipoAlerta + ' alert-with-icon',
+        positionClass: 'toast-' + this.position + '-' + this.align,
       },
       tipoAlerta
     );
