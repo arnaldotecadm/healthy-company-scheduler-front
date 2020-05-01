@@ -18,7 +18,6 @@ export class AuthGuard {
     route: ActivatedRouteSnapshot;
     state: RouterStateSnapshot;
   }): boolean | Observable<boolean> | Promise<boolean> {
-    console.log("UsuarioLogado?", this.userService.isLogged());
     if (this.userService.isLogged()) {
       return true;
     } else {
