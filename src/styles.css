@@ -1,11 +1,24 @@
-.required:after { 
-    color: #d00;
-    content: "*";
-    position: absolute;
-    margin-left: 5px;
-    top:7px;
-  }
-  
-  input.ng-invalid.ng-touched {
-    border: 1px solid red;
-  }
+.required:after {
+  color: #d00;
+  content: '*';
+  position: absolute;
+  margin-left: 5px;
+  top: 7px;
+}
+
+input.ng-invalid.ng-touched {
+  border: 1px solid red;
+}
+
+textarea.ng-invalid.ng-touched {
+  border: 1px solid red;
+}
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, 'Helvetica Neue', sans-serif;
+}

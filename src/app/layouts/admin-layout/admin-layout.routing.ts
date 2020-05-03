@@ -6,7 +6,8 @@ import { SoftwareComponent } from 'app/aplicativo/software/software.component';
 import { AuthGuard } from 'app/core/auth/auth.guard';
 import { HomePageComponent } from 'app/home/home-page/home-page.component';
 import { UserListComponent } from 'app/user/user-list/user-list.component';
-import { UpdatesComponent } from 'app/aplicativo/updates/updates.component';
+import { UpdateListComponent } from 'app/aplicativo/update-list/update-list.component';
+import { UpdateComponent } from 'app/aplicativo/update/update.component';
 
 export const AdminLayoutRoutes: Routes = [
   { path: 'home', component: HomePageComponent, canActivate: [AuthGuard] },
@@ -17,5 +18,6 @@ export const AdminLayoutRoutes: Routes = [
   { path: 'user-list', component: UserListComponent },
   { path: 'app-list', component: AppListComponent },
   { path: 'software', component: SoftwareComponent },
-  { path: 'updates', component: UpdatesComponent },
+  { path: 'update-list', component: UpdateListComponent },
+  { path: 'update', component: UpdateComponent },
 ];

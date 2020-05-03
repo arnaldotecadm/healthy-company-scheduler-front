@@ -2,12 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AplicativoService } from 'app/aplicativo/aplicativo.service';
-import { Software } from 'app/aplicativo/software.interface';
 import { MenssageService } from 'app/shared/notification/notification.service';
 import { Observable, Subject } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
 import { Usuario } from './user.interface';
 import { UserService } from './user.service';
+import { SoftwareModel } from 'app/aplicativo/software.model';
 
 @Component({
   selector: 'app-user',
@@ -17,7 +17,7 @@ import { UserService } from './user.service';
 export class UserComponent implements OnInit {
   public formulario: FormGroup;
   public usuario$: Subject<Usuario> = new Subject<Usuario>();
-  public softwares$: Observable<Software[]>;
+  public softwares$: Observable<SoftwareModel[]>;
 
   constructor(
     private router: Router,

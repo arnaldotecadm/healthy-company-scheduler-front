@@ -1,6 +1,7 @@
-import { Usuario } from 'app/user/user.interface';
+import { UpdateModel } from './update.model';
 
-export interface Software {
+export class SoftwareModel {
+  id: number;
   name: string;
   nickname: string;
   publicKey: string;
@@ -11,5 +12,5 @@ export interface Software {
   active: boolean;
   inMaintenance: boolean;
   consideration: string;
-  usuarioList: Usuario[];
+  updateList: UpdateModel[];
 }

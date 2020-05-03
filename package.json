@@ -35,6 +35,7 @@
     "googleapis": "^49.0.0",
     "jquery": "3.4.1",
     "jwt-decode": "^2.2.0",
+    "moment": "^2.25.1",
     "ngx-toastr": "^12.0.1",
     "perfect-scrollbar": "1.4.0",
     "rxjs": "6.5.5",
@@ -43,6 +44,7 @@
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^0.901.1",
+    "@angular/material-moment-adapter": "^8.2.3",
     "@angular/cli": "^9.1.1",
     "@angular/compiler-cli": "^9.1.2",
     "@types/jasmine": "3.3.12",

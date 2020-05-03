@@ -2,11 +2,11 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatTabsModule } from '@angular/material/tabs';
-import { UpdatesComponent } from './updates.component';
+import { UpdateListComponent } from './update-list.component';
 
 @NgModule({
-  declarations: [UpdatesComponent],
-  exports: [UpdatesComponent],
+  declarations: [UpdateListComponent],
+  exports: [UpdateListComponent],
   imports: [CommonModule, MatTabsModule, MatExpansionModule],
 })
-export class UpdatesModule {}
+export class UpdateListModule {}

@@ -1,4 +1,4 @@
-import { Software } from 'app/aplicativo/software.interface';
+import { SoftwareModel } from 'app/aplicativo/software.model';
 
 export interface Usuario {
   id: number;
@@ -14,5 +14,5 @@ export interface Usuario {
   postalCode: string;
   consideration: string;
 
-  softwaresList: Software[];
+  softwaresList: SoftwareModel[];
 }

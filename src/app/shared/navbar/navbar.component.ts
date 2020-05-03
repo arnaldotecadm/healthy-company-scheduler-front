@@ -69,8 +69,12 @@ export class NavbarComponent implements OnInit {
       return 'Cadastrar / Alterar Software';
     }
 
-    if (titlee.toUpperCase().startsWith('/UPDATES')) {
+    if (titlee.toUpperCase().startsWith('/UPDATE-LIST')) {
       return 'Lista de Atualizações Realizadas na Aplicação';
+    }
+
+    if (titlee.toUpperCase().startsWith('/UPDATE')) {
+      return 'Inserir nova Nota de Update';
     }
 
     return 'home';

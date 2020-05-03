@@ -2,7 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 import { environment } from '../../environments/environment';
-import { Software } from './software.interface';
+import { SoftwareModel } from './software.model';
+import { UpdateModel } from './update.model';
 
 const API = environment.ApiUrl;
 
@@ -12,26 +13,35 @@ const API = environment.ApiUrl;
 export class AplicativoService {
   constructor(private http: HttpClient) {}
 
-  salvarRegistro(registro: Software) {
-    return this.http.post<Software>(
+  salvarRegistro(registro: SoftwareModel) {
+    return this.http.post<SoftwareModel>(
       API + '/user-management/software/add',
       registro
     );
   }
 
   getAll() {
-    return this.http.get<Software[]>(API + '/user-management/software/all');
+    return this.http.get<SoftwareModel[]>(
+      API + '/user-management/software/all'
+    );
   }
 
   getById(softwareId: number) {
-    return this.http.get<Software>(
+    return this.http.get<SoftwareModel>(
       API + '/user-management/software/id/' + softwareId
     );
   }
 
   removeById(softwareId: number) {
-    return this.http.delete<Software[]>(
+    return this.http.delete<SoftwareModel[]>(
       API + '/user-management/software/remove/' + softwareId
+    );
+  }
+
+  addUpdateNote(updateNote: UpdateModel) {
+    return this.http.post<SoftwareModel[]>(
+      API + '/user-management/software/add-update-notes',
+      updateNote
     );
   }
 }

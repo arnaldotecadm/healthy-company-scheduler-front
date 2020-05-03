@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { AplicativoService } from '../aplicativo.service';
 import { switchMap } from 'rxjs/operators';
-import { Software } from '../software.interface';
+import { SoftwareModel } from '../software.model';
 
 @Component({
   selector: 'app-app-list',
@@ -11,7 +11,7 @@ import { Software } from '../software.interface';
   styleUrls: ['./app-list.component.scss'],
 })
 export class AppListComponent implements OnInit {
-  softwares$: Observable<Software[]>;
+  softwares$: Observable<SoftwareModel[]>;
 
   constructor(
     private router: Router,
@@ -31,7 +31,7 @@ export class AppListComponent implements OnInit {
   }
 
   updateNotes(softwareId: number) {
-    this.router.navigate(['/updates', { softwareId: softwareId }]);
+    this.router.navigate(['/update-list', { softwareId: softwareId }]);
   }
 
   remove(softwareId: number) {
