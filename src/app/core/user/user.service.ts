@@ -23,8 +23,12 @@ export class UserService {
 
   private decodeAndNotify() {
     const token = this.tokenService.getToken();
-    const user = jwt_decode(token) as User;
-    this.userSubject.next(user);
+    if (token) {
+      const user = jwt_decode(token) as User;
+      this.userSubject.next(user);
+    } else {
+      this.logout();
+    }
   }
 
   logout() {
