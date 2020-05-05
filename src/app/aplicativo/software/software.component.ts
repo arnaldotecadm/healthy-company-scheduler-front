@@ -30,7 +30,7 @@ export class SoftwareComponent implements OnInit {
 
   updateNotes() {
     this.router.navigate([
-      '/updates',
+      '/update-list',
       { softwareId: this.route.snapshot.paramMap.get('softwareId') },
     ]);
   }
