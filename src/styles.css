@@ -1,6 +1,6 @@
 .required:after {
   color: #d00;
-  content: '*';
+  content: "*";
   position: absolute;
   margin-left: 5px;
   top: 7px;
@@ -20,5 +20,14 @@ body {
 }
 body {
   margin: 0;
-  font-family: Roboto, 'Helvetica Neue', sans-serif;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.center-vertical {
+  display: flex;
+  align-items: center;
 }

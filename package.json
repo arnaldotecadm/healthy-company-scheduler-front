@@ -25,6 +25,7 @@
     "@angular/router": "9.1.2",
     "@ngui/map": "0.30.3",
     "@types/googlemaps": "3.30.19",
+    "angular-chart.js": "1.1.1",
     "angular-material": "^1.1.21",
     "animate.css": "3.7.0",
     "arrive": "2.4.1",
@@ -44,9 +45,9 @@
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^0.901.1",
-    "@angular/material-moment-adapter": "^8.2.3",
     "@angular/cli": "^9.1.1",
     "@angular/compiler-cli": "^9.1.2",
+    "@angular/material-moment-adapter": "^8.2.3",
     "@types/jasmine": "3.3.12",
     "@types/node": "11.13.0",
     "codelyzer": "5.0.0",
