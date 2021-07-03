@@ -1,37 +1,37 @@
-import { CommonModule } from '@angular/common';
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-import { RouterModule, Routes } from '@angular/router';
-import { AuthGuard } from './core/auth/auth.guard';
-import { SigninComponent } from './home/signin/signin.component';
-import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
+import { CommonModule } from "@angular/common";
+import { NgModule } from "@angular/core";
+import { BrowserModule } from "@angular/platform-browser";
+import { RouterModule, Routes } from "@angular/router";
+import { AuthGuard } from "./core/auth/auth.guard";
+import { SigninComponent } from "./home/signin/signin.component";
+import { AdminLayoutComponent } from "./layouts/admin-layout/admin-layout.component";
 
 const routes: Routes = [
   {
-    path: 'sigin-in',
+    path: "sigin-in",
     component: SigninComponent,
   },
   {
-    path: '',
-    redirectTo: 'home',
-    pathMatch: 'full',
+    path: "",
+    redirectTo: "home",
+    pathMatch: "full",
     canActivate: [AuthGuard],
   },
   {
-    path: '',
+    path: "",
     component: AdminLayoutComponent,
     children: [
       {
-        path: '',
+        path: "",
         loadChildren:
-          './layouts/admin-layout/admin-layout.module#AdminLayoutModule',
+          "./layouts/admin-layout/admin-layout.module#AdminLayoutModule",
       },
     ],
     canActivate: [AuthGuard],
   },
   {
-    path: '**',
-    redirectTo: 'home',
+    path: "**",
+    redirectTo: "home",
     canActivate: [AuthGuard],
   },
 ];
