@@ -1,177 +1,286 @@
-<div class="main-content" >
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-8">
-                <div class="card">
-                    <div class="header">
-                        <h4 class="title">Edit Profile</h4>
-                    </div>
-                    <div class="content">
-                        <form [formGroup]="formulario">
-                            <div class="row">
-                                <div class="col-md-5">
-                                    <div class="form-group">
-                                        <label class="required">Company</label>
-                                        <input formControlName="company" type="text" class="form-control" placeholder="Company" value="Creative Code Inc.">
-                                        <app-vmessage 
-                                            [displayError]="isFieldValid('company')" 
-                                            errorMsg="Campo Obrigatório">
-                                        </app-vmessage> 
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <label for="exampleInputEmail1" class="required">Email address</label>
-                                        <input formControlName="email" type="email" class="form-control" placeholder="Email">
-                                        <app-vmessage 
-                                            [displayError]="isFieldValid('email')" 
-                                            errorMsg="Campo Obrigatório">
-                                        </app-vmessage> 
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="row">
-                               
-                                <div class="col-md-3">
-                                    <div class="form-group">
-                                        <label class="required">Username</label>
-                                        <input formControlName="username" type="text" class="form-control" placeholder="Username" value="">
-                                        
-                                        <app-vmessage 
-                                            [displayError]="isFieldValid('username')" 
-                                            errorMsg="Campo Obrigatório">
-                                        </app-vmessage>   
-                                    </div>
-                                </div>
-
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <label class="required">Password</label>
-                                        <input formControlName="password" type="password" class="form-control" placeholder="Password">
-                                        <app-vmessage 
-                                            [displayError]="isFieldValid('password')" 
-                                            errorMsg="Campo Obrigatório">
-                                        </app-vmessage> 
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label class="required">First Name</label>
-                                        <input formControlName="firstName" type="text" class="form-control" placeholder="Company" value="Mike">
-                                        <app-vmessage 
-                                            [displayError]="isFieldValid('firstName')" 
-                                            errorMsg="Campo Obrigatório">
-                                        </app-vmessage> 
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label>Last Name</label>
-                                        <input formControlName="lastName" type="text" class="form-control" placeholder="Last Name" value="Andrew">
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <div class="form-group">
-                                        <label>Address</label>
-                                        <input formControlName="address" type="text" class="form-control" placeholder="Home Address" value="Bld Mihail Kogalniceanu, nr. 8 Bl 1, Sc 1, Ap 09">
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <label>City</label>
-                                        <input formControlName="city" type="text" class="form-control" placeholder="City" value="Mike">
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <label>Country</label>
-                                        <input formControlName="country" type="text" class="form-control" placeholder="Country" value="Andrew">
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <label>Postal Code</label>
-                                        <input formControlName="postalCode" type="number" class="form-control" placeholder="ZIP Code">
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <div class="form-group">
-                                        <label>About Me</label>
-                                        <textarea formControlName="consideration" rows="5" class="form-control" placeholder="Here can be your description" value="Mike">Lamborghini Mercy, Your chick she so thirsty, I'm in that two seat Lambo.</textarea>
-                                    </div>
-                                </div>
-                            </div>
-                            <button type="submit" class="btn btn-danger btn-fill pull-left col-md-3" (click)="cancelUpdate()">Cancel</button>
-                            <button type="submit" class="btn btn-success btn-fill pull-right col-md-3" (click)="updateUser()">Update Profile</button>
-                            <div class="clearfix"></div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4" *ngIf="(usuario$ | async) as user">
-                
-                <div class="card">
-                    <div class="header">
-                        <h4 class="title">Adicionar Permissão</h4>
-                    </div>
-                    <div class="content">
-                        <form [formGroup]="formulario">
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <div class="form-group" *ngIf="(softwares$ | async) as softwares">
-                                        
-                                        <label>Escolha o Software</label>
-                                        <select class="form-control selectpicker" data-live-search="true" formControlName="software">
-                                            <option [value]="software.id" *ngFor="let software of softwares">{{software.name}}</option>
-                                          </select>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <button type="submit" class="btn btn-danger btn-fill pull-left col-md-4">Cancel</button>
-                            <button type="submit" class="btn btn-success btn-fill pull-right col-md-4" (click)="addSoftware(user.id)" [disabled]="formulario.invalid">Update Profile</button>
-                            <div class="clearfix"></div>
-                        </form>
-
-                        <div class="content table-responsive table-full-width">
-                            <table class="table table-hover table-striped">
-                              <thead>
-                                  <tr>
-                                      <th>Nome</th>
-                                  </tr>
-                              </thead>
-                              <tbody>
-                                  <tr *ngFor="let soft of user.softwaresList">
-                                      <td>{{soft.name}}</td>
-                                      <td class="pull-right">
-                                          <span>
-                                              <button [disabled]="formulario.invalid" (click)="removeSoftware(user.id, soft.id)" type="submit" class="btn btn-danger btn-fill" style="padding: 0px 12px;">
-                                                  <span style="cursor: pointer;" class="fa fa-times" aria-hidden="true"></span>
-                                              </button>
-                                          </span>
-                                      </td>
-                                  </tr>
-                              </tbody>
-                          </table>
-  
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="content">
+            <div class="row">
+              <div class="col-md-2 menu-lateral">
+                <div>
+                  <div
+                    class="header"
+                    *ngIf="currentMonth$ | async as currentMonth"
+                  >
+                    <img
+                      mat-card-image
+                      [src]="'/assets/img/angular2-logo-white.png'"
+                      alt="account"
+                    />
+                    <h4 class="title">Summary of: {{ currentMonth.month }}</h4>
+                    <div class="row">
+                      <div class="income">Income</div>
+                      <div class="income menu-align-right bold">
+                        {{ currentMonth.income | currency: "EUR":"symbol" }}
                       </div>
                     </div>
+                    <div class="row">
+                      <div class="expense">Expenses</div>
+                      <div class="expense menu-align-right bold">
+                        {{ currentMonth.expense | currency: "EUR":"symbol" }}
+                      </div>
+                    </div>
+                  </div>
+                  <div class="content">
+                    <div class="menu">
+                      <div class="row">
+                        <div class="menu-icon">
+                          <mat-icon aria-hidden="false">home</mat-icon>
+                        </div>
+                        <div>Home</div>
+                      </div>
+                      <div class="row">
+                        <div class="menu-icon">
+                          <mat-icon aria-hidden="false">settings</mat-icon>
+                        </div>
+                        <div>Settings</div>
+                      </div>
+                      <div class="row">
+                        <div class="menu-icon">
+                          <mat-icon aria-hidden="false">import_export</mat-icon>
+                        </div>
+                        <div>Import Transactions</div>
+                      </div>
+                      <div class="row">
+                        <div class="menu-icon">
+                          <mat-icon aria-hidden="false"
+                            >playlist_add_check</mat-icon
+                          >
+                        </div>
+                        <div>Monthly Expense List</div>
+                      </div>
+                      <div class="row">
+                        <div class="menu-icon">
+                          <mat-icon aria-hidden="false">exit_to_app</mat-icon>
+                        </div>
+                        <div>Logout</div>
+                      </div>
+                    </div>
+                    <div class="footer">
+                      <hr />
+                      <div class="stats">Arnaldo C. Bezerra®</div>
+                    </div>
+                    x
+                  </div>
                 </div>
+              </div>
 
+              <div class="col-md-6 scroll-95">
+                <div class="card">
+                  <div class="header">
+                    <h4 class="title title-caption">Manthly Expenses</h4>
+                    <p class="category">
+                      All incomes/expenses grouped by Month
+                    </p>
+                  </div>
+                  <div class="content">
+                    <div class="table-full-width" *ngIf="false">
+                      <table mat-table [dataSource]="dataSource" matSort>
+                        <ng-container matColumnDef="comment">
+                          <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                            Nota
+                          </th>
+                          <td mat-cell *matCellDef="let element">
+                            {{ element.comment }}
+                          </td>
+                        </ng-container>
+
+                        <ng-container matColumnDef="dateStr">
+                          <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                            Data da Operação
+                          </th>
+                          <td mat-cell *matCellDef="let element">
+                            {{ element.dateStr }}
+                          </td>
+                        </ng-container>
+
+                        <ng-container matColumnDef="labelMain">
+                          <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                            Categoria
+                          </th>
+                          <td mat-cell *matCellDef="let element">
+                            {{ element.labelMain }}
+                          </td>
+                        </ng-container>
+
+                        <ng-container matColumnDef="amount">
+                          <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                            Valor
+                          </th>
+                          <td
+                            mat-cell
+                            *matCellDef="let element"
+                            [ngClass]="
+                              element.amount >= 0 ? 'income' : 'expense'
+                            "
+                          >
+                            {{ element.amount | currency: "EUR":"symbol" }}
+                          </td>
+                        </ng-container>
+
+                        <tr
+                          mat-header-row
+                          *matHeaderRowDef="displayedColumns"
+                        ></tr>
+                        <tr
+                          mat-row
+                          *matRowDef="let row; columns: displayedColumns"
+                        ></tr>
+                      </table>
+                    </div>
+
+                    <div class="list-transaction">
+                      <div
+                        *ngFor="let item of data"
+                        [ngClass]="item.entryType ? 'section-header' : ''"
+                      >
+                        <div class="row table-row" *ngIf="!!!item.entryType">
+                          <div class="w-25">
+                            {{ item.dateStr }}
+                          </div>
+                          <div class="w-25">{{ item.comment }}</div>
+                          <div class="w-25">{{ item.labelMain }}</div>
+                          <div
+                            class="w-25"
+                            [ngClass]="item.amount >= 0 ? 'income' : 'expense'"
+                          >
+                            {{ item.amount | currency: "EUR":"symbol" }}
+                          </div>
+                        </div>
+
+                        <div
+                          class="row table-row background-default"
+                          *ngIf="item.entryType"
+                        >
+                          <div class="w-25 bold">
+                            {{ item.month }}
+                          </div>
+                          <div class="w-25 income bold">
+                            {{ item.income | currency: "EUR":"symbol" }}
+                          </div>
+
+                          <div class="w-25 expense bold">
+                            {{ item.expense | currency: "EUR":"symbol" }}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="footer">
+                      <div class="stats">
+                        <i class="fa fa-history"></i> Updated 3 minutes ago
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4 left-gray-border scroll-95">
+                <mat-accordion>
+                  <mat-expansion-panel>
+                    <mat-expansion-panel-header>
+                      <mat-panel-title> Monthly Analysis </mat-panel-title>
+                      <mat-panel-description>
+                        Groupped by Category
+                      </mat-panel-description>
+                    </mat-expansion-panel-header>
+                    <div class="card">
+                      <div class="header">
+                        <h4 class="title title-caption">Monthly Analysis</h4>
+                        <p class="category">
+                          Compare with previous Month by Category
+                        </p>
+                      </div>
+                      <div class="content">
+                        <div class="table-full-width">
+                          <div class="col-md-12">
+                            <app-month-analysis-comparison
+                              *ngIf="
+                                monthAnalysisAgainstLastMonth$ | async as data
+                              "
+                              [inputValues]="data"
+                            ></app-month-analysis-comparison>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </mat-expansion-panel>
+
+                  <mat-expansion-panel>
+                    <mat-expansion-panel-header>
+                      <mat-panel-title>
+                        Current Month Analysis
+                      </mat-panel-title>
+                      <mat-panel-description>
+                        Grouped by Week
+                      </mat-panel-description>
+                    </mat-expansion-panel-header>
+                    <div class="card" *ngIf="true">
+                      <div class="header">
+                        <h4 class="title title-caption">
+                          Current Month Analysis
+                        </h4>
+                        <p class="category">
+                          Weekly analysis plus category analysis
+                        </p>
+                      </div>
+                      <div class="content">
+                        <div class="table-full-width">
+                          <div class="col-md-12">
+                            <app-month-analysis
+                              *ngIf="
+                                graphPastFourMonthData$
+                                  | async as graphPastFourMonthData
+                              "
+                              [inputValues]="graphPastFourMonthData"
+                            ></app-month-analysis>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </mat-expansion-panel>
+
+                  <mat-expansion-panel>
+                    <mat-expansion-panel-header>
+                      <mat-panel-title> 4 Months Analysis </mat-panel-title>
+                      <mat-panel-description>
+                        Groupped by Month
+                      </mat-panel-description>
+                    </mat-expansion-panel-header>
+                    <div class="card" *ngIf="true">
+                      <div class="header">
+                        <h4 class="title title-caption">Monthly Analysis</h4>
+                        <p class="category">Past Four months Activity</p>
+                      </div>
+                      <div class="content">
+                        <div class="table-full-width">
+                          <div class="col-md-12">
+                            <app-detail-by-type
+                              *ngIf="
+                                graphPastFourMonthData$
+                                  | async as graphPastFourMonthData
+                              "
+                              [inputValues]="graphPastFourMonthData"
+                            ></app-detail-by-type>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </mat-expansion-panel>
+                </mat-accordion>
+              </div>
             </div>
+          </div>
         </div>
+      </div>
     </div>
+  </div>
 </div>
