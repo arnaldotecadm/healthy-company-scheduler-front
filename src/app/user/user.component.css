@@ -1,11 +1,124 @@
-.required:after { 
+.required:after {
   color: #d00;
   content: "*";
   position: absolute;
   margin-left: 5px;
-  top:7px;
+  top: 7px;
 }
 
 input.ng-invalid.ng-touched {
   border: 1px solid red;
+}
+
+.left-gray-border {
+  border-left: solid #dbd5d5 2px;
+}
+
+table {
+  width: 100%;
+}
+
+.income {
+  color: rgb(69, 172, 9);
+}
+
+.expense {
+  color: rgba(196, 29, 29, 0.993);
+}
+
+.scroll-95 {
+  overflow-y: scroll;
+  height: 95vh;
+}
+
+.menu-icon {
+  padding-right: 10px;
+}
+
+.header {
+  padding-bottom: 10px;
+}
+
+.header .row {
+  padding-left: 15px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.menu .row {
+  background-color: #1a294b;
+  padding-left: 15px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  cursor: pointer;
+  color: #8a97b7;
+}
+
+.menu .row:hover {
+  background-color: #10acdb;
+  color: white;
+}
+
+.menu-lateral {
+  background-color: #1a294b;
+  color: #8a97b7;
+}
+
+.menu-selected {
+  background-color: #10acdb;
+  color: white;
+}
+
+.menu-align-right {
+  margin-left: auto;
+  margin-right: 0;
+}
+
+.title {
+  color: #8a97b7;
+}
+
+.title-caption {
+  color: #194dcfb3;
+  font-weight: bold;
+}
+
+.card {
+  margin-bottom: 0px;
+}
+
+.w-25 {
+  width: 25%;
+}
+
+.table-row {
+  height: 48px;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  display: flex;
+  align-items: center;
+  border-color: #e0e0e0;
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+.list-transaction {
+  font-size: 14px;
+}
+
+.pl-24 {
+  padding-left: 24px;
+}
+.pr-24 {
+  padding-right: 24px;
+}
+
+.section-header {
+  position: sticky;
+  top: 0;
+}
+
+.background-default {
+  background-color: #1a294b;
+  color: #8a97b7;
 }
