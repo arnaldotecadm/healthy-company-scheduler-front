@@ -1,0 +1,24 @@
+<div class="card card-chart">
+  <div class="card-header">
+    <div class="container">
+      <div class="row">
+        <div class="">Past 4 Months Review</div>
+      </div>
+      <div class="row">
+        <div class="income">Income</div>
+        <div class="income menu-align-right">
+          {{ totalIncome | currency: "EUR":"symbol" }}
+        </div>
+      </div>
+      <div class="row">
+        <div class="expense">Expenses</div>
+        <div class="expense menu-align-right">
+          {{ totalExpense | currency: "EUR":"symbol" }}
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="card-body">
+    <canvas id="detail-by-type"></canvas>
+  </div>
+</div>
