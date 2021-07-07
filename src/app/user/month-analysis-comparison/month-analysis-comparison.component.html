@@ -1,0 +1,51 @@
+<div class="card card-chart">
+  <div class="card-body">
+    <canvas id="month-analysis-comparison"></canvas>
+  </div>
+  <div class="card-footer">
+    <div class="month-analysis">
+      <div class="list-transaction">
+        <div>
+          <div class="row table-row">
+            <div class="row w-100">
+              <div class="w-25 category-name">Category Name</div>
+              <div class="w-25 category-name tac">Last Month</div>
+              <div class="w-25 category-name tac">Current Month</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="month-analysis">
+      <div class="list-transaction" *ngIf="monthAnalysis">
+        <div *ngFor="let item of monthAnalysis">
+          <div class="row table-row">
+            <div class="row w-100">
+              <div class="w-25 category-name">{{ item.categoryName }}</div>
+              <div class="w-25 category-amount">
+                {{ item.lastMonth | currency: "EUR":"symbol" }}
+              </div>
+              <div
+                class="w-25 category-amount"
+                [ngClass]="item.better ? 'income' : 'expense'"
+              >
+                {{ item.currentMonth | currency: "EUR":"symbol" }}
+              </div>
+              <div class="menu-icon progress-arrow-indicator">
+                <mat-icon
+                  aria-hidden="false"
+                  [ngClass]="!item.better ? 'income' : 'expense'"
+                  >{{
+                    !item.better ? "trending_up" : "trending_down"
+                  }}</mat-icon
+                >
+              </div>
+              <div class="w-15">{{ item.rateAgainstLastMonth }} %</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
