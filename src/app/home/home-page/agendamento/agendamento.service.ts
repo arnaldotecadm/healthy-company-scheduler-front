@@ -5,7 +5,7 @@ import { AgendamentoInterface } from './agendamento.interface';
 import * as moment from 'moment';
 
 const API = environment.ApiUrl;
-const context = '/healthy-company-scheduler/';
+const context = '/';
 
 @Injectable({
   providedIn: 'root',

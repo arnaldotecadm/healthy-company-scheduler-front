@@ -125,7 +125,7 @@ export class HomePageComponent implements OnInit {
   }
 
   openDialog(): void {
-    debugger;
+
     const dialogRef = this.dialog.open(ModalAgendamentoComponent, {
       width: '850px',
       data: {

@@ -5,7 +5,7 @@ import { environment } from '../../../environments/environment';
 import { Area } from './area.interface';
 
 const API = environment.ApiUrl;
-const context = '/healthy-company-scheduler/';
+const context = '/';
 
 @Injectable({
   providedIn: 'root',

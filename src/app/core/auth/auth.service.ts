@@ -7,7 +7,7 @@ import { TokenService } from '../token/token.service';
 
 const apiURL = environment.ApiUrl;
 
-const context = '/healthy-company-scheduler/';
+const context = '/';
 
 @Injectable({
   providedIn: 'root',
