@@ -1,5 +1,3 @@
-import { SoftwareModel } from 'app/aplicativo/software.model';
-
 export interface Usuario {
   id: number;
   company: string;
@@ -13,6 +11,5 @@ export interface Usuario {
   country: string;
   postalCode: string;
   consideration: string;
-
-  softwaresList: SoftwareModel[];
+  superUser: boolean;
 }

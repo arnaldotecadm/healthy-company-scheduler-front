@@ -11,20 +11,52 @@ declare interface RouteInfo {
   title: string;
   icon: string;
   class: string;
+  onlySuper: boolean;
 }
 export const ROUTES: RouteInfo[] = [
-  { path: '/home', title: 'Home Page', icon: 'pe-7s-graph', class: '' },
+  {
+    path: '/home',
+    title: 'Agendamentos',
+    icon: 'pe-7s-graph',
+    class: '',
+    onlySuper: false,
+  },
   {
     path: '/user-list',
     title: 'Lista de usuários',
     icon: 'pe-7s-user',
     class: '',
+    onlySuper: true,
   },
+
   {
-    path: '/app-list',
-    title: 'Lista de Aplicativos',
+    path: '/lista-locais',
+    title: 'Locais',
     icon: 'pe-7s-note2',
     class: '',
+    onlySuper: true,
+  },
+
+  {
+    path: '/lista-areas',
+    title: 'Areas',
+    icon: 'pe-7s-note2',
+    class: '',
+    onlySuper: true,
+  },
+  {
+    path: '/lista-sub-areas',
+    title: 'Sub-Areas',
+    icon: 'pe-7s-note2',
+    class: '',
+    onlySuper: true,
+  },
+  {
+    path: '/regras-agendamento',
+    title: 'Regras de Agendamento',
+    icon: 'pe-7s-note2',
+    class: '',
+    onlySuper: true,
   },
 ];
 
@@ -48,23 +80,10 @@ export class SidebarComponent implements OnInit {
     this.menuItems = ROUTES.filter((menuItem) => menuItem);
 
     const user = jwt_decode(this.tokenService.getToken()) as User;
-    let superUser = false;
 
-    if (user.authority_list && user.authority_list.length > 0) {
-      user.authority_list.forEach((auth) => {
-        if (auth.authority === 'ADMIN') {
-          superUser = true;
-        }
-      });
+    if (!user.superUser) {
+      this.menuItems = this.menuItems.filter((menuItem) => !menuItem.onlySuper);
     }
-
-    if (!superUser) {
-      this.menuItems = this.menuItems.filter(
-        (menuItem) => !menuItem.path.endsWith('user-list')
-      );
-    }
-
-    console.log(JSON.stringify(user));
   }
   isMobileMenu() {
     if ($(window).width() > 991) {

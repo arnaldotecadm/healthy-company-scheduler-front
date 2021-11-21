@@ -1,6 +1,9 @@
+@import '~@fullcalendar/core/main.css';
+@import '~@fullcalendar/daygrid/main.css';
+
 .required:after {
   color: #d00;
-  content: "*";
+  content: '*';
   position: absolute;
   margin-left: 5px;
   top: 7px;
@@ -20,14 +23,14 @@ body {
 }
 body {
   margin: 0;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-family: Roboto, 'Helvetica Neue', sans-serif;
 }
 
-.bold {
-  font-weight: bold;
+html,
+body {
+  height: 100%;
 }
-
-.center-vertical {
-  display: flex;
-  align-items: center;
+body {
+  margin: 0;
+  font-family: Roboto, 'Helvetica Neue', sans-serif;
 }

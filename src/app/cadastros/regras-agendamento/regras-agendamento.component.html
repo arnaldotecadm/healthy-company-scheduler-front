@@ -1,0 +1,105 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-8">
+        <div class="card">
+          <div class="header">
+            <h4 class="title">Regras para Agendamento de Trabalho</h4>
+          </div>
+          <div class="content">
+            <form [formGroup]="formulario">
+              <div class="row">
+                <div class="col-md-5">
+                  <div class="form-group">
+                    <label>Limite de Funcionários por Dia</label>
+                    <input
+                      formControlName="limitePessoasPorDia"
+                      type="number"
+                      class="form-control"
+                      placeholder="999"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-5">
+                  <div class="form-group">
+                    <label
+                      >Limite de Dias por Semana permitidos por
+                      funcionário</label
+                    >
+                    <input
+                      formControlName="limiteDiasPorSemana"
+                      type="number"
+                      class="form-control"
+                      placeholder="999"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-5">
+                  <div class="form-group">
+                    <label>Limite de Funcionários por Local</label>
+                    <input
+                      formControlName="limitePessoasPorLocal"
+                      type="number"
+                      class="form-control"
+                      placeholder="999"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-5">
+                  <div class="form-group">
+                    <label>Limite de Funcionários por Área</label>
+                    <input
+                      formControlName="limitePessoasPorArea"
+                      type="number"
+                      class="form-control"
+                      placeholder="999"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-5">
+                  <div class="form-group">
+                    <label>Limite de Funcionários por SubArea</label>
+                    <input
+                      formControlName="limitePessoasPorSubArea"
+                      type="number"
+                      class="form-control"
+                      placeholder="999"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              <button
+                type="submit"
+                class="btn btn-danger btn-fill pull-left col-md-3"
+                (click)="cancelUpdate()"
+              >
+                Cancelar
+              </button>
+              <button
+                type="submit"
+                class="btn btn-success btn-fill pull-right col-md-3"
+                (click)="updateEntry()"
+              >
+                Salvar Regras
+              </button>
+              <div class="clearfix"></div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

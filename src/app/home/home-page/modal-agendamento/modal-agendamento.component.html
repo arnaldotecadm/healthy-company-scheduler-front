@@ -1,0 +1,184 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="header">
+            <h4 class="title">
+              {{
+                formulario.get('id').value
+                  ? 'Alterar Agendamento de'
+                  : 'Agendar '
+              }}
+              dia De Trabalho
+            </h4>
+          </div>
+          <div class="content">
+            <form [formGroup]="formulario">
+              <div class="row">
+                <div class="col-md-3">
+                  <div class="form-group">
+                    <label class="required">Id Funcionário</label>
+                    <input
+                      formControlName="idFuncionario"
+                      type="text"
+                      class="form-control"
+                      placeholder="ID"
+                      value="999"
+                      disabled
+                    />
+                  </div>
+                </div>
+
+                <div class="col-md-3">
+                  <div class="form-group">
+                    <label class="required">Data Agendamento</label>
+                    <input
+                      formControlName="dataAgendamento"
+                      type="text"
+                      class="form-control"
+                      placeholder="Data Agendamento"
+                      disabled
+                    />
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label class="required">Nome Funcionário</label>
+                    <input
+                      formControlName="nomeFuncionario"
+                      type="text"
+                      class="form-control"
+                      placeholder="Nome Funcionário"
+                      value="Arnaldo Cícero Bezerra"
+                      disabled
+                    />
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <label class="required">Local</label>
+                    <select
+                      matNativeControl
+                      required
+                      class="form-control"
+                      formControlName="local"
+                    >
+                      <option
+                        value="{{ local.id }}"
+                        *ngFor="let local of data.locais"
+                        >{{ local.nome }}</option
+                      >
+                    </select>
+
+                    <app-vmessage
+                      [displayError]="isFieldValid('local')"
+                      errorMsg="Campo Obrigatório"
+                    >
+                    </app-vmessage>
+                  </div>
+                </div>
+
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <label class="required">Área</label>
+                    <select
+                      matNativeControl
+                      required
+                      class="form-control"
+                      formControlName="area"
+                    >
+                      <option
+                        value="{{ area.id }}"
+                        *ngFor="let area of data.areas"
+                        >{{ area.nome }}</option
+                      >
+                    </select>
+                    <app-vmessage
+                      [displayError]="isFieldValid('area')"
+                      errorMsg="Campo Obrigatório"
+                    >
+                    </app-vmessage>
+                  </div>
+                </div>
+
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <label class="required">SubArea</label>
+                    <select
+                      matNativeControl
+                      required
+                      class="form-control"
+                      formControlName="subArea"
+                    >
+                      <option
+                        value="{{ subArea.id }}"
+                        *ngFor="let subArea of data.subAreas"
+                        >{{ subArea.nome }}</option
+                      >
+                    </select>
+                    <app-vmessage
+                      [displayError]="isFieldValid('subArea')"
+                      errorMsg="Campo Obrigatório"
+                    >
+                    </app-vmessage>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label>About</label>
+                    <textarea
+                      formControlName="about"
+                      rows="5"
+                      class="form-control"
+                      placeholder="Deixe aqui alguma observação"
+                      value=""
+                    >
+                    </textarea>
+                  </div>
+                </div>
+              </div>
+              <button
+                type="submit"
+                class="btn btn-danger btn-fill pull-left col-md-3"
+                (click)="onNoClick()"
+              >
+                Cancelar
+              </button>
+
+              <button
+                type="submit"
+                style="margin-left: 1%;"
+                class="btn btn-success btn-fill pull-right col-md-3"
+                (click)="updateEntry()"
+              >
+                Salvar Agendamento
+              </button>
+
+              <button
+                *ngIf="formulario.get('id').value"
+                type="submit"
+                class="btn btn-danger btn-fill pull-right col-md-3"
+                (click)="confirmRemoveEntry()"
+              >
+                Remover Agendamento
+              </button>
+              <div class="clearfix"></div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-confirm-dialog></app-confirm-dialog>

@@ -1,32 +1,33 @@
-import { HttpClient } from "@angular/common/http";
-import { Injectable } from "@angular/core";
-import { environment } from "../../environments/environment";
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+
+import { Usuario } from './user.interface';
+import { environment } from '../../environments/environment';
 
 const API = environment.ApiUrl;
+const context = '/healthy-company-scheduler/';
 
 @Injectable({
-  providedIn: "root",
+  providedIn: 'root',
 })
 export class UserService {
   constructor(private http: HttpClient) {}
 
+  salvarRegistro(registro: Usuario) {
+    return this.http.post<Usuario>(API + context + 'usuario/add', registro);
+  }
+
   getAll() {
-    return this.http.get<any[]>(API + "");
+    return this.http.get<Usuario[]>(API + context + 'usuario/all');
   }
 
-  getDataForGraphPastFourMonth() {
-    return this.http.get<any[]>(API + "/graph-last-4-month");
+  getById(usuarioId: number) {
+    return this.http.get<Usuario>(API + context + 'usuario/id/' + usuarioId);
   }
 
-  getCurrentMonth() {
-    return this.http.get<any>(API + "/current-month");
-  }
-
-  getMonthAnalysis() {
-    return this.http.get<any>(API + "/month-analysis");
-  }
-
-  getMonthAnalysisAgainstLastMonth() {
-    return this.http.get<any>(API + "/month-analysis-comparison");
+  removeById(usuarioId: number) {
+    return this.http.delete<Usuario[]>(
+      API + context + 'usuario/remove/' + usuarioId
+    );
   }
 }

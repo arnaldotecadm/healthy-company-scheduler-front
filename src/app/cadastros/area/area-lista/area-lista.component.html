@@ -1,0 +1,83 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="header">
+            <div class="row">
+              <div class="form-group col-md-10">
+                <h4 class="title">Areas Cadastradas</h4>
+                <p class="category">
+                  Lista de areas cadastrados no Sistema
+                </p>
+              </div>
+              <div class="form-group col-md-2">
+                <button
+                  type="submit"
+                  class="btn btn-info btn-fill pull-right"
+                  (click)="addNewEntry()"
+                >
+                  Inserir Novo
+                </button>
+              </div>
+            </div>
+          </div>
+          <div
+            class="content table-responsive table-full-width"
+            *ngIf="areas$ | async as areas"
+          >
+            <table class="table table-hover table-striped">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Identificacao</th>
+                  <th>Nome</th>
+                  <th>Descrição</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let area of areas">
+                  <td>{{ area.id }}</td>
+                  <td>{{ area.identificacao }}</td>
+                  <td>{{ area.nome }}</td>
+                  <td>{{ area.descricao }}</td>
+                  <td class="pull-right">
+                    <span>
+                      <button
+                        (click)="remove(area.id)"
+                        type="submit"
+                        class="btn btn-danger btn-fill"
+                        style="padding: 0px 12px;"
+                      >
+                        <span
+                          style="cursor: pointer;"
+                          class="fa fa-times"
+                          aria-hidden="true"
+                        ></span>
+                      </button>
+                    </span>
+                    <span style="margin-left: 5px;">
+                      <button
+                        (click)="edit(area.id)"
+                        type="submit"
+                        class="btn btn-info btn-fill"
+                        style="padding: 0px 12px;"
+                      >
+                        <span
+                          style="cursor: pointer;"
+                          class="fa fa-pencil-square-o"
+                          aria-hidden="true"
+                        ></span>
+                      </button>
+                    </span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

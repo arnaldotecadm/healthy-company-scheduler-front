@@ -1,22 +1,20 @@
-import { NgModule } from '@angular/core';
-import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
-import { AdminLayoutRoutes } from './admin-layout.routing';
-
-import { AplicativoModule } from 'app/aplicativo/aplicativo.module';
-import { UserModule } from 'app/user/user.module';
+import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
+import { CadastrosModule } from 'app/cadastros/cadastros.module';
 import { HomeModule } from 'app/home/home.module';
+import { UserModule } from 'app/user/user.module';
+import { AdminLayoutRoutes } from './admin-layout.routing';
 
 @NgModule({
   imports: [
     CommonModule,
     RouterModule.forChild(AdminLayoutRoutes),
     FormsModule,
-    AplicativoModule,
     UserModule,
     HomeModule,
+    CadastrosModule,
   ],
   declarations: [],
 })

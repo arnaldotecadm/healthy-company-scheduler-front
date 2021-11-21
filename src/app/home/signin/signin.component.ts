@@ -22,7 +22,7 @@ export class SigninComponent implements OnInit {
 
   ngOnInit() {
     if (this.userService.isLogged()) {
-      this.router.navigate(['excecoes']);
+      this.router.navigate(['home']);
     }
 
     this.loginForm = this.formBuider.group({
@@ -46,7 +46,10 @@ export class SigninComponent implements OnInit {
     const password = this.loginForm.get('password').value;
 
     this.authService.authenticate(userName, password).subscribe(
-      () => this.router.navigate(['/excecoes']),
+      () => {
+        this.router.navigate(['/home']);
+        this.userService.decodeAndNotify();
+      },
       (err) => {
         switch (err.status) {
           case 0:

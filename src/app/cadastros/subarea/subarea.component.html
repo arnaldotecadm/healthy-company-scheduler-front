@@ -1,0 +1,112 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-8">
+        <div class="card">
+          <div class="header">
+            <h4 class="title">Manter SubArea</h4>
+          </div>
+          <div class="content">
+            <form [formGroup]="formulario">
+              <div class="row">
+                <div class="col-md-1">
+                  <div class="form-group">
+                    <label>ID</label>
+                    <input
+                      formControlName="id"
+                      type="text"
+                      class="form-control"
+                      disabled
+                    />
+                  </div>
+                </div>
+
+                <div class="col-md-3">
+                  <div class="form-group">
+                    <label class="required">Identificação</label>
+                    <input
+                      formControlName="identificacao"
+                      type="text"
+                      class="form-control"
+                      placeholder="Identificacao"
+                      value=""
+                    />
+                    <app-vmessage
+                      [displayError]="isFieldValid('identificacao')"
+                      errorMsg="Campo Obrigatório"
+                    >
+                    </app-vmessage>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-8">
+                  <div class="form-group">
+                    <label class="required">Nome</label>
+                    <input
+                      formControlName="nome"
+                      type="text"
+                      class="form-control"
+                      placeholder="Nome da Area"
+                      value=""
+                    />
+
+                    <app-vmessage
+                      [displayError]="isFieldValid('nome')"
+                      errorMsg="Campo Obrigatório"
+                    >
+                    </app-vmessage>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label>Descrição</label>
+                    <input
+                      formControlName="descricao"
+                      type="text"
+                      class="form-control"
+                      placeholder="Descrição"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label>Observações</label>
+                    <textarea
+                      formControlName="observacao"
+                      rows="5"
+                      class="form-control"
+                      placeholder="Deixe aqui alguma observação sobre a area"
+                    ></textarea>
+                  </div>
+                </div>
+              </div>
+              <button
+                type="submit"
+                class="btn btn-danger btn-fill pull-left col-md-3"
+                (click)="cancelUpdate()"
+              >
+                Cancel
+              </button>
+              <button
+                type="submit"
+                class="btn btn-success btn-fill pull-right col-md-3"
+                (click)="updateUser()"
+              >
+                Update Profile
+              </button>
+              <div class="clearfix"></div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
