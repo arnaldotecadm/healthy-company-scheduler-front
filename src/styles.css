@@ -1,9 +1,9 @@
-@import '~@fullcalendar/core/main.css';
-@import '~@fullcalendar/daygrid/main.css';
+@import "~@fullcalendar/core/main.css";
+@import "~@fullcalendar/daygrid/main.css";
 
 .required:after {
   color: #d00;
-  content: '*';
+  content: "*";
   position: absolute;
   margin-left: 5px;
   top: 7px;
@@ -23,7 +23,7 @@ body {
 }
 body {
   margin: 0;
-  font-family: Roboto, 'Helvetica Neue', sans-serif;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
 html,
@@ -32,5 +32,10 @@ body {
 }
 body {
   margin: 0;
-  font-family: Roboto, 'Helvetica Neue', sans-serif;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.toast-info, .toast-error, .toast-success {
+  background-image: none;
+  border-radius: 10px;
 }
